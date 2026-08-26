@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meniu Digital - Rem's Coffee House</title>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg-dark: #121316;
+      --card-bg: #ffffff;
+      --text-main: #18191c;
+      --text-muted: #71737c;
+      --pink-neon: #ff3b75;
+      --pink-light: #fff0f4;
+      --border-color: #e2e4e9;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      font-family: var(--font-main);
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+    /* HEADER */
+    .site-header {
+      background: rgba(18, 19, 22, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 75px;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 20px;
+      border-radius: 30px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-home:hover {
+      background: #ffffff;
+      color: #000000;
+      transform: translateY(-2px);
+    }
+
+    .logo-center {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #ffffff;
+    }
+
+    /* SCREEN SELECTOR / TABS */
+    .tabs-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 35px 0 25px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #aaaaaa;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--pink-neon);
+      color: #ffffff;
+      border-color: var(--pink-neon);
+      box-shadow: 0 0 20px rgba(255, 59, 117, 0.4);
+    }
+
+    /* MENU PANELS CONTAINER */
+    .tv-boards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* SINGLE TV BOARD */
+    .tv-board {
+      background: var(--card-bg);
+      color: var(--text-main);
+      border-radius: 20px;
+      padding: 28px 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid #282a30;
+      transition: transform 0.3s ease;
+    }
+
+    .tv-board.pink-theme {
+      background: var(--pink-light);
+      border-color: #ffd0dc;
+    }
+
+    .board-header-title {
+      color: var(--pink-neon);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border-bottom: 2px dashed #f0cad4;
+      padding-bottom: 8px;
+    }
+
+    .pink-theme .board-header-title {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 4px;
+      border-bottom: none;
+    }
+
+    .pink-theme .sub-schedule {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--pink-neon);
+      margin: 22px 0 14px;
+    }
+
+    /* ITEMS GRID IN BOARD */
+    .items-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 12px;
+    }
+
+    .items-grid-1col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .item-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .img-wrap {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: #f4f2ee;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .item-card:hover .img-wrap img {
+      transform: scale(1.1);
+    }
+
+    .item-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 3px;
+      color: #111;
+    }
+
+    .item-meta {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .item-price-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--pink-neon);
+      margin-top: 2px;
+    }
+
+    /* EXTRA LIST */
+    .extras-panel {
+      background: #f8f8fa;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 15px;
+      border: 1px solid #ebebeb;
+    }
+
+    .extras-panel h5 {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .extra-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 0;
+      color: #444;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .tv-boards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 650px) {
+      .tv-boards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap nav-container">
+      <a href="index.html" class="btn-home">
+        <span>←</span> Înapoi Acasă
+      </a>
+
+      <div class="logo-center">
+        REM'S COFFEE HOUSE
+      </div>
+
+      <div style="width: 120px;"></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    
+    <!-- TABS MENU -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="filterBoard('all')">Toate Ecranele</button>
+      <button class="tab-btn" onclick="filterBoard('board-1')">1. Classic Coffee</button>
+      <button class="tab-btn" onclick="filterBoard('board-2')">2. Iced & Bubbles</button>
+      <button class="tab-btn" onclick="filterBoard('board-3')">3. Lemonades & Tea</button>
+      <button class="tab-btn" onclick="filterBoard('board-4')">4. Breakfast</button>
+    </div>
+
+    <!-- ECRANELE DIGITALE (STIL TV PANELS) -->
+    <div class="tv-boards-grid">
+      
+      <!-- BOARD 1: CLASSIC COFFEE -->
+      <div class="tv-board" id="board-1">
+        <div class="board-header-title">Classic Coffee</div>
+        
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&q=80" alt="Americano"></div>
+            <div class="item-title">Americano</div>
+            <div class="item-meta">80ml / 150ml</div>
+            <div class="item-price-tag">7 / 10 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80" alt="Cortado"></div>
+            <div class="item-title">Cortado</div>
+            <div class="item-meta">70ml</div>
+            <div class="item-price-tag">12 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=300&q=80" alt="Long Black"></div>
+            <div class="item-title">Long Black</div>
+            <div class="item-meta">100ml / 200ml</div>
+            <div class="item-price-tag">10 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=300&q=80" alt="Flat White"></div>
+            <div class="item-title">Flat White</div>
+            <div class="item-meta">170ml</div>
+            <div class="item-price-tag">14 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=300&q=80" alt="Espresso"></div>
+            <div class="item-title">Espresso</div>
+            <div class="item-meta">20ml</div>
+            <div class="item-price-tag">7 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80" alt="Cappuccino"></div>
+            <div class="item-title">Cappuccino</div>
+            <div class="item-meta">170ml / 300ml</div>
+            <div class="item-price-tag">12 / 14 RON</div>
+          </div>
+        </div>
+
+        <div class="extras-panel">
+          <h5>Extra Options</h5>
+          <div class="extra-item"><span>Vegan Milk Ovăz</span><span>4 RON</span></div>
+          <div class="extra-item"><span>Vegan Milk Cocos</span><span>6 RON</span></div>
+          <div class="extra-item"><span>Sirop Arome</span><span>3 RON</span></div>
+        </div>
+      </div>
+
+      <!-- BOARD 2: ICED & BUBBLES -->
+      <div class="tv-board" id="board-2">
+        <div class="board-header-title">Iced Coffee</div>
+        
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80" alt="Iced Latte"></div>
+            <div class="item-title">Iced Latte</div>
+            <div class="item-meta">300ml</div>
+            <div class="item-price-tag">15 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Iced Caramel"></div>
+            <div class="item-title">Iced Salted Caramel</div>
+            <div class="item-meta">300ml</div>
+            <div class="item-price-tag">19 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=300&q=80" alt="Espresso Tonic"></div>
+            <div class="item-title">Espresso Tonic</div>
+            <div class="item-meta">250ml</div>
+            <div class="item-price-tag">18 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&q=80" alt="Frappe"></div>
+            <div class="item-title">Frappe</div>
+            <div class="item-meta">300ml</div>
+            <div class="item-price-tag">17 RON</div>
+          </div>
+        </div>
+
+        <div class="section-label">Bubble Drinks</div>
+
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1558857563-b371033873b8?w=300&q=80" alt="Mango Bubble"></div>
+            <div class="item-title">Mango Bubble</div>
+            <div class="item-meta">300ml</div>
+            <div class="item-price-tag">20 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=300&q=80" alt="Passion Bubble"></div>
+            <div class="item-title">Passion Bubble</div>
+            <div class="item-meta">300ml</div>
+            <div class="item-price-tag">17 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOARD 3: LEMONADES & TEA -->
+      <div class="tv-board" id="board-3">
+        <div class="board-header-title">Lemonades</div>
+        
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&q=80" alt="Classic Lemonade"></div>
+            <div class="item-title">Classic Lemonade</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">16 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&q=80" alt="Mint Lemonade"></div>
+            <div class="item-title">Mint Lemonade</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">18 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=300&q=80" alt="Raspberry Mint"></div>
+            <div class="item-title">Raspberry Mint</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">19 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=300&q=80" alt="Green Lemonade"></div>
+            <div class="item-title">Green Lemonade</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">19 RON</div>
+          </div>
+        </div>
+
+        <div class="section-label">Iced Tea</div>
+
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&q=80" alt="Iced Tea Lemon"></div>
+            <div class="item-title">Iced Tea Lemon</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">15 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80" alt="Iced Tea Raspberry"></div>
+            <div class="item-title">Iced Tea Raspberry</div>
+            <div class="item-meta">400ml</div>
+            <div class="item-price-tag">15 RON</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOARD 4: BREAKFAST (ROZ CA ÎN POZĂ) -->
+      <div class="tv-board pink-theme" id="board-4">
+        <div class="board-header-title">BREAKFAST</div>
+        <div class="sub-schedule">🕘 SERVED DAILY 7:00 - 16:00</div>
+        
+        <div class="items-grid-2col">
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300&q=80" alt="Croissant Omleta"></div>
+            <div class="item-title">Croissant Omletă & Cașcaval</div>
+            <div class="item-price-tag">30 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=300&q=80" alt="Mic Dejun Perfect"></div>
+            <div class="item-title">Mic Dejun Perfect EA</div>
+            <div class="item-price-tag">30 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&q=80" alt="Benedict Bacon"></div>
+            <div class="item-title">Benedict cu Bacon</div>
+            <div class="item-price-tag">28 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=300&q=80" alt="Benedict Somon"></div>
+            <div class="item-title">Benedict cu Somon</div>
+            <div class="item-price-tag">30 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=300&q=80" alt="English Breakfast"></div>
+            <div class="item-title">English Breakfast</div>
+            <div class="item-price-tag">32 RON</div>
+          </div>
+
+          <div class="item-card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1590412200988-a436970781fa?w=300&q=80" alt="Shakshuca"></div>
+            <div class="item-title">Shakshuca</div>
+            <div class="item-price-tag">25 RON</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function filterBoard(boardId) {
+      const boards = document.querySelectorAll('.tv-board');
+      const tabs = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      boards.forEach(board => {
+        if (boardId === 'all' || board.id === boardId) {
+          board.style.display = 'flex';
+        } else {
+          board.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
