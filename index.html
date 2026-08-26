@@ -24,6 +24,8 @@
       color: var(--text-color);
       font-family: var(--font-sans);
       line-height: 1.5;
+      /* Această linie ajută ca trecerea la secțiune să fie una lină (smooth) */
+      scroll-behavior: smooth;
     }
 
     .wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
@@ -173,6 +175,7 @@
       <nav class="nav-left">
         <a href="index.html">Acasă</a>
         <a href="meniu.html">Meniu</a>
+        <!-- AICI ESTE LEGĂTURA CĂTRE SECȚIUNEA DE LOCAȚII -->
         <a href="#locatii">Locații</a>
       </nav>
 
@@ -190,7 +193,7 @@
     </div>
   </section>
 
-  <!-- SECȚIUNEA SPECIALĂ CU LOCAȚII ȘI PROGRAM -->
+  <!-- SECȚIUNEA DE LOCAȚII (AICI VA COBOARA PAGINA) -->
   <section class="info-section" id="locatii">
     <div class="wrap">
       <div class="info-card-main">
