@@ -3,324 +3,399 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meniu Digital | ReM's Coffee & More</title>
+  <title>ReM's Digital Menu Boards</title>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 
     :root {
-      --primary-teal: #083033;
-      --teal-dark: #052123;
-      --accent-pink: #f27294;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --text-main: #ffffff;
-      --text-muted: #b4c5c7;
+      --screen-bg: #f5f7f8;
+      --card-bg: #ffffff;
+      --text-dark: #1a2b2d;
+      --text-muted: #627274;
+      --accent-pink: #e8638b;
+      --accent-teal: #0c4a4e;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--primary-teal);
-      color: var(--text-main);
+      background-color: #041213;
       font-family: var(--font-sans);
-      line-height: 1.6;
-    }
-
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
-
-    /* HEADER */
-    .site-header {
-      position: sticky;
-      top: 0;
-      background: rgba(8, 48, 51, 0.9);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 1000;
-    }
-
-    .nav-container {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      height: 90px;
+      min-height: 100vh;
     }
 
-    .nav-left { display: flex; gap: 32px; }
-    .nav-left a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s ease;
+    /* CONTAINERUL CARE ȚINE CELE 5 ECRANE ALĂTURATE */
+    .menu-wall {
+      display: flex;
+      gap: 12px;
+      max-width: 1700px;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 20px;
     }
-    .nav-left a:hover, .nav-left a.active { color: var(--accent-pink); }
 
-    .logo-center {
-      text-align: center;
-      text-decoration: none;
+    /* UN SINGUR ECRAN DIGITAL (PANOU) */
+    .menu-screen {
+      flex: 1;
+      min-width: 310px;
+      background: var(--screen-bg);
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      border: 3px solid #1a383a;
       display: flex;
       flex-direction: column;
-      align-items: center;
-    }
-    .logo-main-text { font-size: 22px; font-weight: 800; letter-spacing: 2px; color: #fff; }
-    .logo-sub-text { font-size: 9px; font-weight: 700; letter-spacing: 4px; color: var(--accent-pink); text-transform: uppercase; margin-top: -2px; }
-
-    /* PAGE TITLE */
-    .menu-header {
-      text-align: center;
-      padding: 60px 0 40px 0;
-    }
-    .menu-header h1 { font-size: 40px; font-weight: 800; margin-bottom: 10px; }
-    .menu-header p { color: var(--text-muted); font-size: 15px; }
-
-    /* BANNER OFERTĂ SPECIALĂ (Pre اخذ din poza ta) */
-    .promo-banner {
-      background: linear-gradient(135deg, rgba(242, 114, 148, 0.2), rgba(8, 48, 51, 0.8));
-      border: 2px solid var(--accent-pink);
-      border-radius: 24px;
-      padding: 35px;
-      margin-bottom: 60px;
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      position: relative;
-      overflow: hidden;
     }
 
-    .promo-content h3 {
-      font-size: 24px;
-      font-weight: 800;
+    /* ECRANUL 5 (PROMO SPECIALĂ - Fundal Turcoaz închis) */
+    .menu-screen.promo-board {
+      background: linear-gradient(135deg, #093b3e 0%, #042022 100%);
       color: #fff;
-      margin-bottom: 8px;
-      line-height: 1.3;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
     }
 
-    .promo-content p {
+    .board-category {
       font-size: 13px;
+      font-weight: 800;
       color: var(--accent-pink);
-      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #e2e8e9;
+      padding-bottom: 6px;
     }
 
-    .promo-price-box {
-      background: var(--accent-pink);
-      color: #fff;
-      padding: 15px 30px;
-      border-radius: 16px;
+    .sub-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin: 12px 0 6px 0;
+    }
+
+    /* ELEMENTE MENIU (GRID COMPACT) */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .menu-box {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 8px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(242, 114, 148, 0.4);
-      flex-shrink: 0;
-    }
-
-    .promo-old {
-      font-size: 14px;
-      text-decoration: line-through;
-      opacity: 0.8;
-      font-weight: 600;
-    }
-
-    .promo-new {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-    }
-
-    /* MENIU CATEGORII */
-    .menu-category {
-      margin-bottom: 60px;
-    }
-
-    .category-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--accent-pink);
-      margin-bottom: 25px;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-box-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .menu-box-sub {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .menu-box-price {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--accent-teal);
+    }
+
+    /* STIL PENTRU ECRANUL DE BREAKFAST */
+    .breakfast-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent-pink);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .breakfast-time {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .menu-item {
+    .food-card {
       background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.2s ease;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
     }
 
-    .menu-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(242, 114, 148, 0.4);
+    .food-card h4 {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 2px;
     }
 
-    .item-details h4 {
-      font-size: 16px;
-      font-weight: 700;
+    .food-card p {
+      font-size: 9px;
+      color: var(--text-muted);
       margin-bottom: 4px;
+    }
+
+    .food-card .price {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--accent-teal);
+    }
+
+    /* STIL ECRAN PROMO (WRAP CAESAR) */
+    .promo-content h2 {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.2;
+      text-transform: uppercase;
+      margin-bottom: 10px;
       color: #fff;
     }
 
-    .item-details p {
-      font-size: 13px;
-      color: var(--text-muted);
+    .promo-note {
+      font-size: 10px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
     }
 
-    .item-price {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--accent-pink);
-      white-space: nowrap;
-      margin-left: 20px;
+    .promo-badge-box {
+      background: var(--accent-pink);
+      padding: 12px 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 8px 20px rgba(232, 99, 139, 0.4);
     }
 
-    footer {
-      background-color: var(--teal-dark);
+    .old-pr { font-size: 14px; text-decoration: line-through; color: rgba(255,255,255,0.8); font-weight: 700; }
+    .new-pr { font-size: 28px; font-weight: 900; color: #fff; }
+
+    .board-logo {
+      margin-top: 25px;
       text-align: center;
-      padding: 40px 0;
-      font-size: 13px;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 80px;
     }
+    .board-logo span { display: block; }
+    .b-name { font-size: 18px; font-weight: 900; letter-spacing: 2px; color: #fff; }
+    .b-sub { font-size: 7px; font-weight: 700; letter-spacing: 3px; color: var(--accent-pink); text-transform: uppercase; }
 
-    @media (max-width: 850px) {
-      .menu-grid { grid-template-columns: 1fr; }
-      .promo-banner { flex-direction: column; text-align: center; }
-    }
+    /* Scrollbar fin pentru ecrane mici */
+    .menu-wall::-webkit-scrollbar { height: 8px; }
+    .menu-wall::-webkit-scrollbar-thumb { background: #1a383a; border-radius: 4px; }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="wrap nav-container">
-      <nav class="nav-left">
-        <a href="index.html">Acasă</a>
-        <a href="meniu.html" class="active">Meniu</a>
-        <a href="index.html#locatii">Locații</a>
-      </nav>
+  <div class="menu-wall">
 
-      <a href="index.html" class="logo-center">
-        <span class="logo-main-text">ReM's</span>
-        <span class="logo-sub-text">Coffee & More</span>
-      </a>
-
-      <div></div>
-    </div>
-  </header>
-
-  <div class="wrap">
-    
-    <div class="menu-header">
-      <h1>Meniul Nostru Digital</h1>
-      <p>Alege specialitatea preferată și bucură-te de gustul autentic</p>
-    </div>
-
-    <!-- OFERTA SPECIALĂ DIN POZĂ -->
-    <div class="promo-banner">
-      <div class="promo-content">
-        <p>✨ Ofertă Specială</p>
-        <h3>WRAP CAESAR CU PUI / SOMON<br>+ CAFEA* / PEPSI</h3>
-        <p style="color: var(--text-muted); font-size: 12px; margin-top: 5px;">*Cappuccino / Espresso / Americano</p>
-      </div>
-      <div class="promo-price-box">
-        <div class="promo-old">41 RON</div>
-        <div class="promo-new">33 RON</div>
-      </div>
-    </div>
-
-    <!-- SPECIALITĂȚI CAFEA -->
-    <div class="menu-category">
-      <div class="category-title">☕ Specialty Coffee</div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Espresso</h4>
-            <p>Cafea de specialitate pură, extrasă perfect</p>
+    <!-- ECRAN 1: CLASSIC COFFEE, RAF & MATCHA -->
+    <div class="menu-screen">
+      <div>
+        <div class="board-category">Classic Coffee</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Americano</div>
+            <div class="menu-box-price">11 RON</div>
           </div>
-          <div class="item-price">11 RON</div>
+          <div class="menu-box">
+            <div class="menu-box-title">Cortado</div>
+            <div class="menu-box-price">14 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Espresso</div>
+            <div class="menu-box-price">10 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Cappuccino</div>
+            <div class="menu-box-price">15 RON</div>
+          </div>
         </div>
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Cappuccino</h4>
-            <p>Espresso dublu, lapte catifelat și cremă fină</p>
+
+        <div class="sub-category">Raf & Flavored</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Sweet Vanilla Raf</div>
+            <div class="menu-box-price">20 RON</div>
           </div>
-          <div class="item-price">16 RON</div>
+          <div class="menu-box">
+            <div class="menu-box-title">Hazelnut Latte</div>
+            <div class="menu-box-price">18 RON</div>
+          </div>
         </div>
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Caffè Latte</h4>
-            <p>Espresso cu mult lapte fin și strat subțire de spumă</p>
+
+        <div class="sub-category">Matcha / Vegan</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Matcha Latte</div>
+            <div class="menu-box-price">22 RON</div>
           </div>
-          <div class="item-price">18 RON</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Flat White</h4>
-            <p>Double ristretto și lapte microtexturat</p>
+          <div class="menu-box">
+            <div class="menu-box-title">Pink Tonic Matcha</div>
+            <div class="menu-box-price">24 RON</div>
           </div>
-          <div class="item-price">17 RON</div>
         </div>
       </div>
+      <div style="font-size: 8px; text-align: center; color: var(--text-muted); margin-top: 10px;">ReM's Coffee Boards</div>
     </div>
 
-    <!-- BRUNCH & FOOD -->
-    <div class="menu-category">
-      <div class="category-title">🍳 Brunch & Food</div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="item-details">
+    <!-- ECRAN 2: ICED COFFEE, BUBBLE DRINKS & MILKSHAKE -->
+    <div class="menu-screen">
+      <div>
+        <div class="board-category">Iced Coffee & Bubble</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Iced Latte</div>
+            <div class="menu-box-price">18 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Frappe</div>
+            <div class="menu-box-price">19 RON</div>
+          </div>
+        </div>
+
+        <div class="sub-category">Bubble Drinks</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Mango Bubble</div>
+            <div class="menu-box-price">22 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Berry Bubble</div>
+            <div class="menu-box-price">22 RON</div>
+          </div>
+        </div>
+
+        <div class="sub-category">Milkshake</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Vanilla Shake</div>
+            <div class="menu-box-price">21 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Oreo Shake</div>
+            <div class="menu-box-price">23 RON</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size: 8px; text-align: center; color: var(--text-muted); margin-top: 10px;">Refreshing Menu</div>
+    </div>
+
+    <!-- ECRAN 3: LEMONADES & ICED TEA -->
+    <div class="menu-screen">
+      <div>
+        <div class="board-category">Lemonades & Tea</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Classic Lemonade</div>
+            <div class="menu-box-price">18 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Mint Lemonade</div>
+            <div class="menu-box-price">19 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Mango Lemonade</div>
+            <div class="menu-box-price">21 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Iced Tea Peach</div>
+            <div class="menu-box-price">17 RON</div>
+          </div>
+        </div>
+
+        <div class="sub-category">Homemade Tea</div>
+        <div class="items-grid">
+          <div class="menu-box">
+            <div class="menu-box-title">Ginger Honey Tea</div>
+            <div class="menu-box-price">16 RON</div>
+          </div>
+          <div class="menu-box">
+            <div class="menu-box-title">Fresh Orange</div>
+            <div class="menu-box-price">19 RON</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size: 8px; text-align: center; color: var(--text-muted); margin-top: 10px;">Fresh & Natural</div>
+    </div>
+
+    <!-- ECRAN 4: BREAKFAST -->
+    <div class="menu-screen">
+      <div>
+        <div class="breakfast-title">Break<br>fast</div>
+        <div class="breakfast-time">07:00 - 16:00</div>
+
+        <div class="food-grid">
+          <div class="food-card">
             <h4>Avocado Toast</h4>
-            <p>Pâine cu maia, avocado proaspăt, ou poșat, semințe</p>
+            <p>Maia, ou poșat</p>
+            <div class="price">28 RON</div>
           </div>
-          <div class="item-price">28 RON</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-details">
+          <div class="food-card">
             <h4>Eggs Benedict</h4>
-            <p>Ouă poșate, bacon crocant, sos hollandaise pe brioșă</p>
+            <p>Brioșă, bacon</p>
+            <div class="price">32 RON</div>
           </div>
-          <div class="item-price">32 RON</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Wrap Caesar cu Pui</h4>
-            <p>Tortilla crocantă, pui fraged, sos caesar, salată</p>
+          <div class="food-card">
+            <h4>Omletă Clasică</h4>
+            <p>Brânză, verdeață</p>
+            <div class="price">24 RON</div>
           </div>
-          <div class="item-price">26 RON</div>
-        </div>
-        <div class="menu-item">
-          <div class="item-details">
-            <h4>Wrap Caesar cu Somon</h4>
-            <p>Tortilla, somon afumat, sos caesar, mix salată</p>
+          <div class="food-card">
+            <h4>Croissant Unt</h4>
+            <p>Proaspăt copt</p>
+            <div class="price">12 RON</div>
           </div>
-          <div class="item-price">29 RON</div>
         </div>
+      </div>
+      <div style="font-size: 8px; text-align: center; color: var(--text-muted); margin-top: 10px;">Morning Menu</div>
+    </div>
+
+    <!-- ECRAN 5: OFERTA SPECIALĂ (WRAP CAESAR) -->
+    <div class="menu-screen promo-board">
+      <div class="promo-content">
+        <h2>Wrap Caesar<br>cu Pui / Somon<br>+ Cafea* / Pepsi</h2>
+        <div class="promo-note">*Cappuccino / Espresso / Americano</div>
+        
+        <div class="promo-badge-box">
+          <span class="old-pr">41 RON</span>
+          <span class="new-pr">33 RON</span>
+        </div>
+      </div>
+
+      <div class="board-logo">
+        <span class="b-name">ReM'S</span>
+        <span class="b-sub">Coffee & More</span>
       </div>
     </div>
 
   </div>
-
-  <footer>
-    <div class="wrap">
-      <p>© 2026 ReM's Coffee & More. Toate drepturile rezervate.</p>
-    </div>
-  </footer>
 
 </body>
 </html>
