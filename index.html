@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rem's Coffee & More | Specialty Coffee & Brunch</title>
+  <title>ReM's | Coffee & More</title>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
     :root {
-      /* Culoarea exactă preluată din fundalul logo-ului tău (Verde Petrol / Teal Închis) */
-      --bg-teal: #0c383b;
-      --bg-teal-dark: #08292b;
-      --bg-teal-light: #124c4f;
-      
-      --card-bg: rgba(255, 255, 255, 0.04);
-      --card-border: rgba(255, 255, 255, 0.12);
+      --primary-teal: #0c383b;
+      --teal-dark: #072628;
+      --accent-gold: #d4af37;
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.15);
       --text-main: #ffffff;
-      --text-muted: #b0c4c5;
+      --text-muted: #b8c8c9;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -25,77 +23,73 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg-teal);
+      background-color: var(--primary-teal);
       color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
-    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
+    .wrap { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
 
-    /* HEADER */
+    /* HEADER MODERN */
     .site-header {
       position: sticky;
       top: 0;
-      background: rgba(12, 56, 59, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--card-border);
-      z-index: 100;
+      background: rgba(12, 56, 59, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
     }
 
     .nav-container {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      height: 85px;
+      height: 90px;
     }
 
-    .nav-left { display: flex; gap: 30px; }
+    .nav-left { display: flex; gap: 32px; }
     .nav-left a {
       text-decoration: none;
       color: var(--text-muted);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
-    .nav-left a:hover { color: #ffffff; }
+    .nav-left a:hover { color: #fff; }
 
-    /* LOGO STYLING BAZAT PE IMAGINEA TA */
+    /* LOGO CENTRAL STILIZAT */
     .logo-center {
       text-align: center;
       text-decoration: none;
-    }
-    .logo-center a {
-      text-decoration: none;
-      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .logo-brand {
-      font-size: 24px;
-      font-weight: 900;
+    .logo-main-text {
+      font-size: 22px;
+      font-weight: 800;
       letter-spacing: 2px;
-      text-transform: none; /* Păstrează majusculele/minusculele ca în logo: ReM's */
+      color: #fff;
     }
-    .logo-sub {
+    .logo-sub-text {
       font-size: 9px;
       font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      letter-spacing: 4px;
       color: var(--text-muted);
+      text-transform: uppercase;
       margin-top: -2px;
     }
 
-    /* HERO BANNER */
-    .hero-banner {
+    /* HERO SECTION LUMINOS ȘI CURAT */
+    .hero {
       position: relative;
-      height: 75vh;
-      min-height: 550px;
-      background: linear-gradient(rgba(12, 56, 59, 0.75), rgba(8, 41, 43, 0.9)), 
-                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat;
+      height: 80vh;
+      min-height: 600px;
+      background: linear-gradient(180deg, rgba(12, 56, 59, 0.4) 0%, rgba(7, 38, 40, 0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,144 +98,168 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 800px;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .hero-tag {
+    .hero-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
-      padding: 6px 18px;
+      padding: 8px 20px;
       border-radius: 30px;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      letter-spacing: 2.5px;
+      margin-bottom: 24px;
     }
 
-    .hero-content h1 {
-      font-size: 50px;
-      font-weight: 900;
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
       line-height: 1.15;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       letter-spacing: -1px;
     }
 
-    .hero-content p {
+    .hero p {
       font-size: 16px;
       color: var(--text-muted);
-      margin-bottom: 35px;
-      font-weight: 500;
+      margin-bottom: 40px;
+      font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .btn-menu-main {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background-color: #ffffff;
-      color: var(--bg-teal);
+      color: var(--primary-teal);
       padding: 16px 36px;
-      border-radius: 40px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .btn-menu-main:hover {
-      transform: translateY(-3px);
-      background-color: #f0f4f4;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    /* SECȚIUNEA LOCAȚII & PROGRAM */
-    .locations-section {
-      padding: 90px 0;
-      background: var(--bg-teal-dark);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: var(--text-muted);
+      font-weight: 700;
       font-size: 14px;
-      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background-color: #f2f5f5;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    /* SECȚIUNEA LOCAȚII MODERNIZATĂ */
+    .locations-section {
+      padding: 100px 0;
+      background-color: var(--teal-dark);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header .schedule-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
     .locations-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 1300px;
-      margin: 0 auto;
+      gap: 24px;
     }
 
-    .loc-card {
+    .location-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 30px 20px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
+      border-radius: 20px;
+      padding: 35px 25px;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .loc-card:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.08);
+    .location-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
 
-    .loc-icon {
-      font-size: 28px;
-      margin-bottom: 15px;
+    .location-icon-box {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 20px;
     }
 
-    .loc-card h3 {
-      font-size: 17px;
-      font-weight: 800;
+    .location-card h3 {
+      font-size: 18px;
+      font-weight: 700;
       margin-bottom: 8px;
       color: #fff;
     }
 
-    .loc-card p {
-      font-size: 13px;
+    .location-card p {
+      font-size: 14px;
       color: var(--text-muted);
-      font-weight: 500;
+      line-height: 1.5;
     }
 
     /* FOOTER */
     footer {
-      background: #051d1e;
+      background-color: #041617;
       text-align: center;
       padding: 40px 0;
       font-size: 13px;
       color: var(--text-muted);
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    @media (max-width: 1100px) {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 650px) {
+    @media (max-width: 600px) {
       .locations-grid { grid-template-columns: 1fr; }
-      .hero-content h1 { font-size: 34px; }
+      .hero h1 { font-size: 38px; }
+      .nav-container { display: flex; justify-content: space-between; }
     }
   </style>
 </head>
@@ -256,52 +274,59 @@
       </nav>
 
       <a href="index.html" class="logo-center">
-        <span class="logo-brand">ReM's</span>
-        <span class="logo-sub">Coffee & More</span>
+        <span class="logo-main-text">ReM's</span>
+        <span class="logo-sub-text">Coffee & More</span>
       </a>
+
+      <div></div> <!-- Element gol pentru a menține centrul perfect al logo-ului -->
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero-banner">
+  <section class="hero">
     <div class="hero-content">
-      <span class="hero-tag">Specialty Coffee & Brunch</span>
+      <span class="hero-badge">Specialty Coffee & Brunch</span>
       <h1>Locul tău preferat pentru cafea & momente de neuitat</h1>
       <p>Descoperă gama noastră completă de specialități de cafea, preparate proaspete de mic dejun și deserturi rafinate.</p>
-      <a href="meniu.html" class="btn-menu-main">Vezi Meniul Digital Complet &rarr;</a>
+      <a href="meniu.html" class="btn-primary">
+        Vezi Meniu Digital 
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
     </div>
   </section>
 
-  <!-- SECȚIUNEA LOCAȚII & PROGRAM -->
+  <!-- LOCATIONS SECTION -->
   <section class="locations-section" id="locatii">
     <div class="wrap">
       
-      <div class="section-title">
-        <p style="color: #fff; margin-bottom: 8px; font-weight: 700;">🕘 Program zilnic: 07:00 - 22:00</p>
+      <div class="section-header">
+        <div class="schedule-pill">
+          <span>🕘</span> Program zilnic: 07:00 - 22:00
+        </div>
         <h2>Unde ne găsești în oraș</h2>
       </div>
 
       <div class="locations-grid">
-        <div class="loc-card">
-          <div class="loc-icon">📍</div>
+        <div class="location-card">
+          <div class="location-icon-box">📍</div>
           <h3>Centru</h3>
           <p>Lucian Blaga, nr. 14<br>Timișoara</p>
         </div>
 
-        <div class="loc-card">
-          <div class="loc-icon">📍</div>
+        <div class="location-card">
+          <div class="location-icon-box">📍</div>
           <h3>Complex Studențesc</h3>
           <p>Aleea Studenților, nr. 5<br>Timișoara</p>
         </div>
 
-        <div class="loc-card">
-          <div class="loc-icon">📍</div>
+        <div class="location-card">
+          <div class="location-icon-box">📍</div>
           <h3>Iulius Town</h3>
           <p>Incintă Iulius Mall<br>Timișoara</p>
         </div>
 
-        <div class="loc-card">
-          <div class="loc-icon">📍</div>
+        <div class="location-card">
+          <div class="location-icon-box">📍</div>
           <h3>Moșnița Nouă</h3>
           <p>Str. Paulina, nr. 6<br>Moșnița Nouă</p>
         </div>
