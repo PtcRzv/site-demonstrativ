@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rem's Coffee House | Specialty Coffee & Brunch</title>
+  <title>Rem's Coffee & More | Specialty Coffee & Brunch</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
     :root {
-      --bg-dark: #0b0c10;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --pink-accent: #ff2a6d;
+      /* Culoarea exactă preluată din fundalul logo-ului tău (Verde Petrol / Teal Închis) */
+      --bg-teal: #0c383b;
+      --bg-teal-dark: #08292b;
+      --bg-teal-light: #124c4f;
+      
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.12);
       --text-main: #ffffff;
-      --text-muted: #a0a5b1;
+      --text-muted: #b0c4c5;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -22,7 +25,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-teal);
       color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.6;
@@ -35,7 +38,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      background: rgba(11, 12, 16, 0.9);
+      background: rgba(12, 56, 59, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--card-border);
       z-index: 100;
@@ -57,18 +60,42 @@
       letter-spacing: 0.5px;
       transition: color 0.2s;
     }
-    .nav-left a:hover { color: var(--pink-accent); }
+    .nav-left a:hover { color: #ffffff; }
 
-    .logo-center { font-size: 20px; font-weight: 900; letter-spacing: 3px; color: #fff; text-transform: uppercase; }
-    .logo-center a { text-decoration: none; color: #fff; }
+    /* LOGO STYLING BAZAT PE IMAGINEA TA */
+    .logo-center {
+      text-align: center;
+      text-decoration: none;
+    }
+    .logo-center a {
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-brand {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: none; /* Păstrează majusculele/minusculele ca în logo: ReM's */
+    }
+    .logo-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
 
-    /* HERO BANNER CU IMAGINE DE FUNDAL */
+    /* HERO BANNER */
     .hero-banner {
       position: relative;
       height: 75vh;
       min-height: 550px;
-      background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.85)), 
-                  url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(12, 56, 59, 0.75), rgba(8, 41, 43, 0.9)), 
+                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -82,20 +109,20 @@
 
     .hero-tag {
       display: inline-block;
-      background: rgba(255, 42, 109, 0.15);
-      color: var(--pink-accent);
-      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 6px 18px;
       border-radius: 30px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 20px;
-      border: 1px solid rgba(255, 42, 109, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .hero-content h1 {
-      font-size: 52px;
+      font-size: 50px;
       font-weight: 900;
       line-height: 1.15;
       margin-bottom: 18px;
@@ -113,27 +140,28 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background-color: var(--pink-accent);
-      color: white;
+      background-color: #ffffff;
+      color: var(--bg-teal);
       padding: 16px 36px;
       border-radius: 40px;
       text-decoration: none;
       font-weight: 800;
       font-size: 15px;
-      box-shadow: 0 10px 25px rgba(255, 42, 109, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     .btn-menu-main:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(255, 42, 109, 0.6);
+      background-color: #f0f4f4;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
     /* SECȚIUNEA LOCAȚII & PROGRAM */
     .locations-section {
       padding: 90px 0;
-      background: #0f1015;
+      background: var(--bg-teal-dark);
     }
 
     .section-title {
@@ -175,7 +203,7 @@
     }
 
     .loc-card:hover {
-      border-color: var(--pink-accent);
+      border-color: rgba(255, 255, 255, 0.4);
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.08);
     }
@@ -200,7 +228,7 @@
 
     /* FOOTER */
     footer {
-      background: #07080b;
+      background: #051d1e;
       text-align: center;
       padding: 40px 0;
       font-size: 13px;
@@ -213,7 +241,7 @@
     }
     @media (max-width: 650px) {
       .locations-grid { grid-template-columns: 1fr; }
-      .hero-content h1 { font-size: 36px; }
+      .hero-content h1 { font-size: 34px; }
     }
   </style>
 </head>
@@ -227,13 +255,14 @@
         <a href="#locatii">Locații</a>
       </nav>
 
-      <div class="logo-center">
-        <a href="index.html">Rem's Coffee</a>
-      </div>
+      <a href="index.html" class="logo-center">
+        <span class="logo-brand">ReM's</span>
+        <span class="logo-sub">Coffee & More</span>
+      </a>
     </div>
   </header>
 
-  <!-- HERO SECTION SPECTACULOS -->
+  <!-- HERO SECTION -->
   <section class="hero-banner">
     <div class="hero-content">
       <span class="hero-tag">Specialty Coffee & Brunch</span>
@@ -248,7 +277,7 @@
     <div class="wrap">
       
       <div class="section-title">
-        <p style="color: var(--pink-accent); margin-bottom: 8px;">🕘 Program zilnic: 07:00 - 22:00</p>
+        <p style="color: #fff; margin-bottom: 8px; font-weight: 700;">🕘 Program zilnic: 07:00 - 22:00</p>
         <h2>Unde ne găsești în oraș</h2>
       </div>
 
@@ -283,7 +312,7 @@
 
   <footer>
     <div class="wrap">
-      <p>© 2026 Rem's Coffee House. Toate drepturile rezervate.</p>
+      <p>© 2026 ReM's Coffee & More. Toate drepturile rezervate.</p>
     </div>
   </footer>
 
