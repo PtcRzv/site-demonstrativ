@@ -24,7 +24,7 @@
       background-color: var(--bg-screen);
       color: #ffffff;
       font-family: var(--font-main);
-      padding: 0 0 60px 0;
+      padding-bottom: 60px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -66,7 +66,7 @@
       text-transform: uppercase;
     }
 
-    /* MENIU CONTAINER (SIMULARE 4 ECRANE TV) */
+    /* MENIU CONTAINER (4 ECRANE TV) */
     .screens-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -76,7 +76,6 @@
       padding: 0 20px;
     }
 
-    /* UN ECRAN INDIVIDUAL */
     .menu-screen {
       background: var(--panel-bg);
       color: var(--text-dark);
@@ -92,7 +91,6 @@
       background: var(--panel-pink);
     }
 
-    /* TITLURI CATEGORII PE PANOU */
     .screen-heading {
       color: var(--pink-accent);
       font-size: 16px;
@@ -131,7 +129,6 @@
       padding-top: 10px;
     }
 
-    /* GRID PRODUSE INTERIOR PANOU */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -183,7 +180,6 @@
       margin-top: 1px;
     }
 
-    /* EXTRAS STIL JOS */
     .extras-box {
       margin-top: auto;
       padding-top: 12px;
@@ -207,7 +203,6 @@
       padding: 1px 0;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1300px) {
       .screens-container { grid-template-columns: repeat(2, 1fr); }
     }
@@ -218,17 +213,15 @@
 </head>
 <body>
 
-  <!-- TOP BAR -->
   <header class="top-bar">
     <a href="index.html" class="btn-home">← Acasă</a>
     <div class="brand-title">Rem's Coffee House - Meniu Digital</div>
     <div style="width: 70px;"></div>
   </header>
 
-  <!-- CELE 4 ECRANE TV -->
   <div class="screens-container">
     
-    <!-- ECRAN 1: CLASSIC & RAF & FLAVORED & MATCHA -->
+    <!-- ECRAN 1 -->
     <div class="menu-screen">
       <div class="screen-heading">Classic Coffee</div>
       <div class="items-grid">
@@ -273,25 +266,25 @@
       <div class="sub-heading">Raf & Flavored Coffee</div>
       <div class="items-grid">
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=80" alt="Vanilla Raf"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=80" alt="Vanilla"></div>
           <div class="item-name">Sweet Vanilla Raf</div>
           <div class="item-details">300ml</div>
           <div class="item-price">20 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80" alt="Pistachio Raf"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80" alt="Pistachio"></div>
           <div class="item-name">Pistachio Raf</div>
           <div class="item-details">300ml</div>
           <div class="item-price">20 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Hazelnut Latte"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Hazelnut"></div>
           <div class="item-name">Hazelnut Latte</div>
           <div class="item-details">300ml</div>
           <div class="item-price">17 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1593443320739-77f74939d0da?w=300&q=80" alt="Caramel Latte"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1593443320739-77f74939d0da?w=300&q=80" alt="Caramel"></div>
           <div class="item-name">Salted Caramel</div>
           <div class="item-details">300ml</div>
           <div class="item-price">17 RON</div>
@@ -305,12 +298,12 @@
       </div>
     </div>
 
-    <!-- ECRAN 2: ICED COFFEE & BUBBLE DRINKS -->
+    <!-- ECRAN 2 -->
     <div class="menu-screen">
       <div class="screen-heading">Iced Coffee</div>
       <div class="items-grid">
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80" alt="Iced Latte"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&q=80" alt="Iced"></div>
           <div class="item-name">Iced Latte</div>
           <div class="item-details">300ml</div>
           <div class="item-price">15 RON</div>
@@ -364,12 +357,12 @@
       </div>
     </div>
 
-    <!-- ECRAN 3: LEMONADES & TEA -->
+    <!-- ECRAN 3 -->
     <div class="menu-screen">
       <div class="screen-heading">Lemonades</div>
       <div class="items-grid">
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&q=80" alt="Classic"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=300&q=80" alt="Lemonade"></div>
           <div class="item-name">Classic Lemonade</div>
           <div class="item-details">400ml</div>
           <div class="item-price">16 RON</div>
@@ -397,13 +390,13 @@
       <div class="sub-heading">Iced Tea & Homemade Tea</div>
       <div class="items-grid">
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&q=80" alt="Iced Tea"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&q=80" alt="Tea"></div>
           <div class="item-name">Iced Tea Lemon</div>
           <div class="item-details">400ml</div>
           <div class="item-price">15 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80" alt="Tea"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80" alt="Peach"></div>
           <div class="item-name">Iced Tea Peach</div>
           <div class="item-details">400ml</div>
           <div class="item-price">15 RON</div>
@@ -423,7 +416,7 @@
       </div>
     </div>
 
-    <!-- ECRAN 4: BREAKFAST (ROZ) -->
+    <!-- ECRAN 4 (BREAKFAST) -->
     <div class="menu-screen pink-screen">
       <div class="screen-heading">BREAKFAST</div>
       <div class="sub-info">7:00 - 16:00</div>
@@ -436,20 +429,20 @@
           <div class="item-price">30 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=300&q=80" alt="Mic dejun"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=300&q=80" alt="Breakfast"></div>
           <div class="item-name">Mic Dejun Perfect</div>
           <div class="item-details">Special EA</div>
           <div class="item-price">30 RON</div>
         </div>
         <div class="menu-item">
-          <div class="item-img"><img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&q=80" alt="Benedict Bacon"></div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=300&q=80" alt="Benedict"></div>
           <div class="item-name">Benedict cu Bacon</div>
           <div class="item-details">Ou poșat & sos</div>
           <div class="item-price">28 RON</div>
         </div>
         <div class="menu-item">
-          <div class="img-img"><img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=300&q=80" alt="Benedict Somon"></div>
-          <div class="item-name" style="margin-top:2px;">Benedict cu Somon</div>
+          <div class="item-img"><img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=300&q=80" alt="Salmon"></div>
+          <div class="item-name">Benedict cu Somon</div>
           <div class="item-details">Somon afumat</div>
           <div class="item-price">30 RON</div>
         </div>
