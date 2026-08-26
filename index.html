@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produse - Food Wagon Dumbrăvița</title>
+  <title>Food Wagon Dumbrăvița | Home</title>
   
   <style>
-    /* STILURI DE BAZĂ */
     :root {
       --bg-main: #ffffff;
       --text-color: #111111;
@@ -19,6 +18,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -35,7 +38,7 @@
       padding: 0 20px;
     }
 
-    /* HEADER FIX & CURAT */
+    /* HEADER */
     .site-header {
       position: sticky;
       top: 0;
@@ -110,111 +113,145 @@
       background-color: #333333;
     }
 
-    /* SHOP LAYOUT */
-    .shop-layout {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 60px;
-      padding: 50px 20px 100px;
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 70px 0 30px;
     }
 
-    .shop-sidebar h3 {
-      font-size: 15px;
+    .eyebrow {
+      display: block;
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--text-color);
-    }
-
-    .sidebar-categories {
-      list-style: none;
-    }
-
-    .sidebar-categories li {
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
 
-    .sidebar-link {
-      text-decoration: none;
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero .lead {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 16px;
       color: var(--text-muted);
-      font-size: 14px;
-      transition: color 0.2s ease;
+    }
+
+    /* TABS */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 40px 0 50px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
-    .sidebar-link:hover,
-    .sidebar-link.active {
-      color: var(--text-color);
-      font-weight: 600;
+    .tab-btn.active, .tab-btn:hover {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
     }
 
-    /* BREADCRUMBS & TITLU */
-    .breadcrumbs {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .breadcrumbs a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .breadcrumbs a:hover {
-      text-decoration: underline;
-    }
-
-    .page-title {
-      font-size: 46px;
-      font-weight: 600;
-      letter-spacing: -1px;
-      margin-bottom: 35px;
-    }
-
-    /* GRID PRODUSE SPOON BURGER */
-    .shop-grid {
+    /* GRID PRODUSE HOMEPAGE */
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 50px 30px;
+      padding-bottom: 80px;
     }
 
-    .shop-card {
-      text-decoration: none;
-      color: var(--text-color);
-      cursor: pointer;
-    }
-
-    .card-bg {
-      background-color: #f4f4f4;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 14px;
-      aspect-ratio: 1 / 1;
+    .product-card {
+      text-align: center;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      text-decoration: none;
+      color: inherit;
     }
 
-    .card-bg img {
+    .product-card.hidden {
+      display: none;
+    }
+
+    .img-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: #f4f4f4;
+    }
+
+    .img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
-    .shop-card:hover .card-bg img {
-      transform: scale(1.06);
+    .product-card:hover .img-wrap img {
+      transform: scale(1.05);
     }
 
-    .shop-title {
-      font-size: 16px;
-      font-weight: 600;
+    .product-category {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
-    .shop-price {
+    .product-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    /* INFO STRIP */
+    .info-strip {
+      background-color: #fcfcfc;
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .info-box h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
       font-size: 14px;
       color: var(--text-muted);
-      font-weight: 500;
     }
 
     /* FOOTER */
@@ -269,21 +306,11 @@
       color: var(--text-muted);
     }
 
-    .modal-content h2 {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .modal-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
     .modal-options {
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: 20px;
     }
 
     .option-card {
@@ -296,44 +323,30 @@
       text-decoration: none;
       color: var(--text-color);
       text-align: left;
-      transition: border-color 0.2s ease;
     }
 
-    .option-card:hover {
-      border-color: #000000;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 992px) {
-      .shop-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      .shop-grid {
+    @media (max-width: 900px) {
+      .products-grid, .info-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 576px) {
-      .nav-left {
-        display: none;
-      }
-      .shop-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 600px) {
+      .nav-left { display: none; }
+      .products-grid, .info-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER NAVIGAȚIE -->
   <header class="site-header">
     <div class="wrap nav-container">
       <nav class="nav-left">
-        <a href="index.html">Acasă</a>
-        <a href="produse.html" class="active-link">Produse</a>
-        <a href="index.html#despre">Despre</a>
-        <a href="index.html#locatie">Locație</a>
+        <a href="index.html" class="active-link">Acasă</a>
+        <a href="produse.html">Produse</a>
+        <a href="#despre">Despre</a>
+        <a href="#locatie">Locație</a>
       </nav>
 
       <div class="logo-center">
@@ -348,106 +361,73 @@
     </div>
   </header>
 
-  <!-- PRODUSE MAIN CONTENT -->
-  <main class="wrap shop-layout">
-    
-    <!-- SIDEBAR CATEGORII -->
-    <aside class="shop-sidebar">
-      <h3>Categorii de produse</h3>
-      <ul class="sidebar-categories">
-        <li><a class="sidebar-link active" data-cat="burgeri">Burgeri</a></li>
-        <li><a class="sidebar-link" data-cat="fries">Garnituri / Loaded Fries</a></li>
-        <li><a class="sidebar-link" data-cat="crispy">Pui & Snacks</a></li>
-        <li><a class="sidebar-link" data-cat="bauturi">Băuturi</a></li>
-        <li><a class="sidebar-link" data-cat="sosuri">Sosuri</a></li>
-      </ul>
-    </aside>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">GUST SIGUR, FĂRĂ COMPROMIS</span>
+      <h1>Alese pentru pofta ta</h1>
+      <p class="lead">Burgeri artizanali, loaded fries și crispy chicken gătiți pe loc în Dumbrăvița.</p>
+    </div>
+  </section>
 
-    <!-- CONTENT DREAPTA -->
-    <section class="shop-content">
-      
-      <!-- BREADCRUMBS & TITLU -->
-      <div class="breadcrumbs">
-        <a href="index.html">Prima pagină</a> / <span id="current-category-breadcrumb">Burgeri</span>
+  <!-- MENIU CONTAINER -->
+  <section class="wrap">
+    <div class="category-tabs">
+      <button class="tab-btn active" data-category="all">Toate</button>
+      <button class="tab-btn" data-category="burgeri">Burgeri</button>
+      <button class="tab-btn" data-category="fries">Loaded Fries</button>
+      <button class="tab-btn" data-category="crispy">Crispy</button>
+    </div>
+
+    <div class="products-grid">
+      <a href="produse.html" class="product-card" data-category="burgeri">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80" alt="Wagon Smash Burger">
+        </div>
+        <span class="product-category">Burgeri</span>
+        <h3 class="product-title">Wagon Smash Burger</h3>
+        <div class="product-price">32.00 lei</div>
+      </a>
+
+      <a href="produse.html" class="product-card" data-category="burgeri">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&auto=format&fit=crop&q=80" alt="Spicy Burger">
+        </div>
+        <span class="product-category">Burgeri</span>
+        <h3 class="product-title">Dumbrăvița Spicy Burger</h3>
+        <div class="product-price">34.00 lei</div>
+      </a>
+
+      <a href="produse.html" class="product-card" data-category="fries">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&auto=format&fit=crop&q=80" alt="Cheesy Fries">
+        </div>
+        <span class="product-category">Loaded Fries</span>
+        <h3 class="product-title">Cheesy Bacon Fries</h3>
+        <div class="product-price">22.00 lei</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section class="info-strip" id="locatie">
+    <div class="wrap">
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>📍 Locație</h3>
+          <p>Strada Conac 8A, Dumbrăvița</p>
+        </div>
+        <div class="info-box" id="despre">
+          <h3>🕒 Program</h3>
+          <p>Luni - Duminică: 11:00 - 23:00</p>
+        </div>
+        <div class="info-box">
+          <h3>🛵 Livrare</h3>
+          <p>Disponibil pe Wolt & Comenzi Telefonice</p>
+        </div>
       </div>
-      <h1 class="page-title" id="page-category-title">Burgeri</h1>
-
-      <!-- GRID CARDURI -->
-      <div class="shop-grid">
-        
-        <!-- BURGERI -->
-        <div class="shop-card" data-cat="burgeri">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop&q=80" alt="Meniu Wagon Smash">
-          </div>
-          <h4 class="shop-title">Meniu Wagon Smash</h4>
-          <div class="shop-price">48.99 lei</div>
-        </div>
-
-        <div class="shop-card" data-cat="burgeri">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&auto=format&fit=crop&q=80" alt="Wagon Smash Burger">
-          </div>
-          <h4 class="shop-title">Wagon Smash Burger</h4>
-          <div class="shop-price">32.00 lei</div>
-        </div>
-
-        <div class="shop-card" data-cat="burgeri">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=600&auto=format&fit=crop&q=80" alt="Meniu Crispy Chicken">
-          </div>
-          <h4 class="shop-title">Meniu Crispy Chicken Burger</h4>
-          <div class="shop-price">44.99 lei</div>
-        </div>
-
-        <div class="shop-card" data-cat="burgeri">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&auto=format&fit=crop&q=80" alt="Dumbrăvița Spicy Burger">
-          </div>
-          <h4 class="shop-title">Dumbrăvița Spicy Burger</h4>
-          <div class="shop-price">34.00 lei</div>
-        </div>
-
-        <!-- GARNITURI -->
-        <div class="shop-card" data-cat="fries" style="display: none;">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600&auto=format&fit=crop&q=80" alt="Cheesy Bacon Fries">
-          </div>
-          <h4 class="shop-title">Cheesy Bacon Fries</h4>
-          <div class="shop-price">22.00 lei</div>
-        </div>
-
-        <!-- PUI -->
-        <div class="shop-card" data-cat="crispy" style="display: none;">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80" alt="Crispy Strips">
-          </div>
-          <h4 class="shop-title">Crispy Strips (5 buc)</h4>
-          <div class="shop-price">24.00 lei</div>
-        </div>
-
-        <!-- BĂUTURI -->
-        <div class="shop-card" data-cat="bauturi" style="display: none;">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=600&auto=format&fit=crop&q=80" alt="Limonadă">
-          </div>
-          <h4 class="shop-title">Limonadă de casă (500ml)</h4>
-          <div class="shop-price">12.00 lei</div>
-        </div>
-
-        <!-- SOSURI -->
-        <div class="shop-card" data-cat="sosuri" style="display: none;">
-          <div class="card-bg">
-            <img src="https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=600&auto=format&fit=crop&q=80" alt="Sos Wagon">
-          </div>
-          <h4 class="shop-title">Sos Wagon de Casă</h4>
-          <div class="shop-price">4.50 lei</div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -461,8 +441,6 @@
     <div class="modal-content">
       <button class="modal-close" id="closeModalBtn">&times;</button>
       <h2>Cum vrei să comanzi?</h2>
-      <p class="modal-sub">Alege varianta potrivită pentru tine:</p>
-
       <div class="modal-options">
         <a href="tel:0700000000" class="option-card">
           <span>📞</span>
@@ -471,8 +449,7 @@
             <small>Cu ridicare din Str. Conac 8A</small>
           </div>
         </a>
-
-        <a href="https://wolt.com/ro/rou/timisoara/restaurant/food-wagon-67e1863d9826a9725131d20b" target="_blank" rel="noopener noreferrer" class="option-card">
+        <a href="https://wolt.com" target="_blank" class="option-card">
           <span>🛵</span>
           <div>
             <strong>Comandă pe Wolt</strong>
@@ -483,49 +460,37 @@
     </div>
   </div>
 
-  <!-- SCRIPT INTEGRAT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. FILTRARE CATEGORII SIDEBAR
-      const sidebarLinks = document.querySelectorAll(".sidebar-link");
-      const shopCards = document.querySelectorAll(".shop-card");
-      const categoryTitle = document.getElementById("page-category-title");
-      const categoryBreadcrumb = document.getElementById("current-category-breadcrumb");
+      // TAB-URI HOMEPAGE
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const productCards = document.querySelectorAll(".product-card");
 
-      sidebarLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          sidebarLinks.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          const category = button.getAttribute("data-category");
 
-          const selectedCat = link.getAttribute("data-cat");
-          const catName = link.textContent;
-
-          if (categoryTitle) categoryTitle.textContent = catName;
-          if (categoryBreadcrumb) categoryBreadcrumb.textContent = catName;
-
-          shopCards.forEach((card) => {
-            if (card.getAttribute("data-cat") === selectedCat) {
-              card.style.display = "block";
+          productCards.forEach((card) => {
+            if (category === "all" || card.getAttribute("data-category") === category) {
+              card.classList.remove("hidden");
             } else {
-              card.style.display = "none";
+              card.classList.add("hidden");
             }
           });
         });
       });
 
-      // 2. MODAL COMANDĂ
+      // MODAL
       const modal = document.getElementById("orderModal");
       const openBtn = document.getElementById("openModalBtn");
       const closeBtn = document.getElementById("closeModalBtn");
 
       if (openBtn) openBtn.addEventListener("click", () => modal.classList.add("active"));
       if (closeBtn) closeBtn.addEventListener("click", () => modal.classList.remove("active"));
-
-      window.addEventListener("click", (e) => {
-        if (e.target === modal) modal.classList.remove("active");
-      });
+      window.addEventListener("click", (e) => { if (e.target === modal) modal.classList.remove("active"); });
     });
   </script>
-
 </body>
 </html>
