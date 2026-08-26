@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Wagon Dumbrăvița | Street Food</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap nav-container">
+      <nav class="nav-left">
+        <a href="#meniu">Meniu</a>
+        <a href="#despre">Despre</a>
+        <a href="#locatie">Locație</a>
+      </nav>
+
+      <div class="logo-center">
+        <a href="#">
+          <span class="logo-text">FOOD WAGON</span>
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <button class="btn-order" id="openModalBtn">Comandă</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">GUST SIGUR, FĂRĂ COMPROMIS</span>
+      <h1>Alese pentru pofta ta</h1>
+      <p class="lead">Gătim burgeri artizanali, loaded fries și crispy chicken proaspăt, direct din Food Wagon-ul nostru din Dumbrăvița.</p>
+    </div>
+  </section>
+
+  <!-- CATEGORII / TABS -->
+  <section class="menu-section" id="meniu">
+    <div class="wrap">
+      <div class="category-tabs">
+        <button class="tab-btn active" data-category="all">Toate</button>
+        <button class="tab-btn" data-category="burgeri">Burgeri</button>
+        <button class="tab-btn" data-category="fries">Loaded Fries</button>
+        <button class="tab-btn" data-category="crispy">Crispy & Snacks</button>
+        <button class="tab-btn" data-category="bauturi">Băuturi</button>
+      </div>
+
+      <!-- GRID PRODUSE -->
+      <div class="products-grid">
+        
+        <!-- BURGERI -->
+        <article class="product-card" data-category="burgeri">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Wagon+Smash" alt="Wagon Smash Burger">
+          </div>
+          <span class="product-category">Burgeri</span>
+          <h3 class="product-title">Wagon Smash Burger</h3>
+          <p class="product-desc">Dublă chiftea vită Angus, cheddar dublu, bacon crocant, castraveți murați, sos Wagon.</p>
+          <div class="product-price">32.00 lei</div>
+        </article>
+
+        <article class="product-card" data-category="burgeri">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Spicy+Burger" alt="Dumbrăvița Spicy Burger">
+          </div>
+          <span class="product-category">Burgeri</span>
+          <h3 class="product-title">Dumbrăvița Spicy Burger</h3>
+          <p class="product-desc">Vită Angus, jalapeños, brânză Pepper Jack, ceapă caramelizată, sos sriracha mayo.</p>
+          <div class="product-price">34.00 lei</div>
+        </article>
+
+        <article class="product-card" data-category="burgeri">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Crispy+Chicken" alt="Crispy Chicken Burger">
+          </div>
+          <span class="product-category">Burgeri</span>
+          <h3 class="product-title">Crispy Chicken Burger</h3>
+          <p class="product-desc">Pui marinat în buttermilk, crustă panko, salată coleslaw, sos dulce-acrișor.</p>
+          <div class="product-price">29.00 lei</div>
+        </article>
+
+        <article class="product-card" data-category="burgeri">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Halloumi+Burger" alt="Halloumi Veggie Burger">
+          </div>
+          <span class="product-category">Burgeri</span>
+          <h3 class="product-title">Halloumi Veggie Burger</h3>
+          <p class="product-desc">Halloumi la grătar, ardei copt, rucola, sos de pesto cu nuci, chifla brioche.</p>
+          <div class="product-price">31.00 lei</div>
+        </article>
+
+        <!-- LOADED FRIES -->
+        <article class="product-card" data-category="fries">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Cheesy+Bacon" alt="Cheesy Bacon Fries">
+          </div>
+          <span class="product-category">Loaded Fries</span>
+          <h3 class="product-title">Cheesy Bacon Fries</h3>
+          <p class="product-desc">Cartofi proaspeți prăjiți, sos cald de cheddar, bucăți de bacon crocant, verdeață.</p>
+          <div class="product-price">22.00 lei</div>
+        </article>
+
+        <article class="product-card" data-category="fries">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Pulled+Pork" alt="Pulled Pork Fries">
+          </div>
+          <span class="product-category">Loaded Fries</span>
+          <h3 class="product-title">Pulled Pork Fries</h3>
+          <p class="product-desc">Cartofi prăjiți, carne de porc afumată gătită 12 ore, sos BBQ, ceapă verde.</p>
+          <div class="product-price">28.00 lei</div>
+        </article>
+
+        <!-- CRISPY -->
+        <article class="product-card" data-category="crispy">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Crispy+Strips" alt="Crispy Strips">
+          </div>
+          <span class="product-category">Crispy & Snacks</span>
+          <h3 class="product-title">Crispy Strips (5 buc)</h3>
+          <p class="product-desc">Fâșii din piept de pui în crustă crocantă + 1 sos la alegere.</p>
+          <div class="product-price">24.00 lei</div>
+        </article>
+
+        <article class="product-card" data-category="crispy">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Mozzarella+Sticks" alt="Mozzarella Sticks">
+          </div>
+          <span class="product-category">Crispy & Snacks</span>
+          <h3 class="product-title">Mozzarella Sticks (6 buc)</h3>
+          <p class="product-desc">Bășicuțe de mozzarella topită în crustă aurie, servite cu sos marinara.</p>
+          <div class="product-price">18.00 lei</div>
+        </article>
+
+        <!-- BĂUTURI -->
+        <article class="product-card" data-category="bauturi">
+          <div class="img-wrap">
+            <img src="https://via.placeholder.com/600x450/ffffff/000000?text=Limonada" alt="Limonadă de casă">
+          </div>
+          <span class="product-category">Băuturi</span>
+          <h3 class="product-title">Limonadă de casă (500ml)</h3>
+          <p class="product-desc">Lămâie presată pe loc, miere, mentă proaspătă și gheață.</p>
+          <div class="product-price">12.00 lei</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIE / DESPRE -->
+  <section class="info-strip" id="locatie">
+    <div class="wrap">
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>📍 Locație</h3>
+          <p><strong>Strada Conac 8A</strong><br>Dumbrăvița 307160</p>
+          <a href="https://maps.app.goo.gl/uZUqL95e1ASq7oDW6" target="_blank" rel="noopener noreferrer" class="link-btn">Google Maps →</a>
+        </div>
+        <div class="info-box" id="despre">
+          <h3>🕒 Program</h3>
+          <p><strong>Luni - Duminică:</strong><br>11:00 - 23:00</p>
+        </div>
+        <div class="info-box">
+          <h3>🍔 Calitate</h3>
+          <p>Carne 100% vită Black Angus, sosuri artizanale de casă și ingrediente proaspete.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Food Wagon Dumbrăvița. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL COMANDĂ -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <h2>Cum vrei să comanzi?</h2>
+      <p class="modal-sub">Alege varianta potrivită pentru tine:</p>
+
+      <div class="modal-options">
+        <a href="tel:0700000000" class="option-card">
+          <span class="icon">📞</span>
+          <div>
+            <strong>Comandă Telefonică</strong>
+            <small>Cu ridicare din Str. Conac 8A</small>
+          </div>
+        </a>
+
+        <a href="https://wolt.com/ro/rou/timisoara/restaurant/food-wagon-67e1863d9826a9725131d20b" target="_blank" rel="noopener noreferrer" class="option-card">
+          <span class="icon">🛵</span>
+          <div>
+            <strong>Comandă pe Wolt</strong>
+            <small>Livrare direct la ușă</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
