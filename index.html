@@ -6,37 +6,38 @@
   <title>Rem's Coffee House | Specialty Coffee & Brunch</title>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
     :root {
-      --bg-main: #fcfbfa;
-      --text-color: #1a1a1a;
-      --text-muted: #707070;
+      --bg-dark: #0b0c10;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.1);
       --pink-accent: #ff2a6d;
-      --border-color: #eae7e1;
+      --text-main: #ffffff;
+      --text-muted: #a0a5b1;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg-main);
-      color: var(--text-color);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       font-family: var(--font-sans);
-      line-height: 1.5;
-      /* Această linie ajută ca trecerea la secțiune să fie una lină (smooth) */
-      scroll-behavior: smooth;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
 
     /* HEADER */
     .site-header {
       position: sticky;
       top: 0;
-      background: rgba(252, 251, 250, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-color);
+      background: rgba(11, 12, 16, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
       z-index: 100;
     }
 
@@ -44,182 +45,245 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 75px;
+      height: 85px;
     }
 
-    .nav-left { display: flex; gap: 24px; }
+    .nav-left { display: flex; gap: 30px; }
     .nav-left a {
       text-decoration: none;
-      color: var(--text-color);
+      color: var(--text-muted);
       font-size: 14px;
       font-weight: 700;
+      letter-spacing: 0.5px;
       transition: color 0.2s;
     }
     .nav-left a:hover { color: var(--pink-accent); }
 
-    .logo-center { font-size: 20px; font-weight: 900; letter-spacing: 3px; }
-    .logo-center a { text-decoration: none; color: var(--text-color); }
+    .logo-center { font-size: 20px; font-weight: 900; letter-spacing: 3px; color: #fff; text-transform: uppercase; }
+    .logo-center a { text-decoration: none; color: #fff; }
 
-    .tagline-bar {
-      background-color: #1a1a1a;
-      color: #fff;
-      font-size: 12px;
+    /* HERO BANNER CU IMAGINE DE FUNDAL */
+    .hero-banner {
+      position: relative;
+      height: 75vh;
+      min-height: 550px;
+      background: linear-gradient(rgba(11,12,16,0.6), rgba(11,12,16,0.85)), 
+                  url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 8px 0;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-weight: 600;
+      padding: 0 20px;
     }
 
-    /* HERO */
-    .hero { text-align: center; padding: 60px 0 30px; }
-    .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      font-weight: 600;
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 42, 109, 0.15);
+      color: var(--pink-accent);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 25px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 42, 109, 0.3);
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      font-weight: 500;
     }
 
     .btn-menu-main {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background-color: var(--pink-accent);
       color: white;
-      padding: 14px 32px;
-      border-radius: 30px;
+      padding: 16px 36px;
+      border-radius: 40px;
       text-decoration: none;
       font-weight: 800;
       font-size: 15px;
-      box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
-      transition: transform 0.2s;
-    }
-    .btn-menu-main:hover { transform: translateY(-2px); }
-
-    /* INFO & LOCATIONS SECTION */
-    .info-section {
-      padding: 50px 0 80px;
-    }
-
-    .info-card-main {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .info-tagline {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--pink-accent);
+      box-shadow: 0 10px 25px rgba(255, 42, 109, 0.4);
+      transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 15px;
+    }
+    .btn-menu-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 42, 109, 0.6);
     }
 
-    .schedule-box {
-      display: inline-block;
-      background-color: #f0eae1;
-      color: #1a1a1a;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 15px;
+    /* SECȚIUNEA LOCAȚII & PROGRAM */
+    .locations-section {
+      padding: 90px 0;
+      background: #0f1015;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
       font-weight: 800;
-      margin-bottom: 40px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .locations-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      text-align: left;
+      max-width: 1300px;
+      margin: 0 auto;
     }
 
-    .loc-item {
-      background: var(--bg-main);
-      border: 1px solid var(--border-color);
-      padding: 18px 22px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    footer {
+    .loc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 30px 20px;
       text-align: center;
-      padding: 30px 0;
-      font-size: 12px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
 
-    @media (max-width: 768px) {
+    .loc-card:hover {
+      border-color: var(--pink-accent);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .loc-icon {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .loc-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .loc-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #07080b;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+    }
+
+    @media (max-width: 1100px) {
+      .locations-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 650px) {
       .locations-grid { grid-template-columns: 1fr; }
-      .info-card-main { padding: 20px; }
+      .hero-content h1 { font-size: 36px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="tagline-bar">
-    specialty coffee | breakfast & brunch | desserts & bakery
-  </div>
 
   <header class="site-header">
     <div class="wrap nav-container">
       <nav class="nav-left">
         <a href="index.html">Acasă</a>
         <a href="meniu.html">Meniu</a>
-        <!-- AICI ESTE LEGĂTURA CĂTRE SECȚIUNEA DE LOCAȚII -->
         <a href="#locatii">Locații</a>
       </nav>
 
       <div class="logo-center">
-        <a href="index.html">REM'S COFFEE HOUSE</a>
+        <a href="index.html">Rem's Coffee</a>
       </div>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="wrap">
-      <h1>Locul tău preferat pentru cafea & brunch</h1>
-      <p class="hero-subtitle">Descoperă produsele noastre preparate zilnic cu pasiune</p>
-      <a href="meniu.html" class="btn-menu-main">Vezi Meniul Digital Complet</a>
+  <!-- HERO SECTION SPECTACULOS -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">Specialty Coffee & Brunch</span>
+      <h1>Locul tău preferat pentru cafea & momente de neuitat</h1>
+      <p>Descoperă gama noastră completă de specialități de cafea, preparate proaspete de mic dejun și deserturi rafinate.</p>
+      <a href="meniu.html" class="btn-menu-main">Vezi Meniul Digital Complet &rarr;</a>
     </div>
   </section>
 
-  <!-- SECȚIUNEA DE LOCAȚII (AICI VA COBOARA PAGINA) -->
-  <section class="info-section" id="locatii">
+  <!-- SECȚIUNEA LOCAȚII & PROGRAM -->
+  <section class="locations-section" id="locatii">
     <div class="wrap">
-      <div class="info-card-main">
-        
-        <div class="info-tagline">
-          specialty coffee | breakfast & brunch | desserts & bakery
-        </div>
-
-        <div>
-          <span class="schedule-box">🕘 Daily 07:00 - 22:00</span>
-        </div>
-
-        <div class="locations-grid">
-          <div class="loc-item">📍 Lucian Blaga, nr. 14, Timișoara</div>
-          <div class="loc-item">📍 Aleea Studenților, nr. 5, Timișoara</div>
-          <div class="loc-item">📍 Iulius Town, Timişoara</div>
-          <div class="loc-item">📍 Str. Paulina, nr. 6, Moşnița Nouă</div>
-        </div>
-
+      
+      <div class="section-title">
+        <p style="color: var(--pink-accent); margin-bottom: 8px;">🕘 Program zilnic: 07:00 - 22:00</p>
+        <h2>Unde ne găsești în oraș</h2>
       </div>
+
+      <div class="locations-grid">
+        <div class="loc-card">
+          <div class="loc-icon">📍</div>
+          <h3>Centru</h3>
+          <p>Lucian Blaga, nr. 14<br>Timișoara</p>
+        </div>
+
+        <div class="loc-card">
+          <div class="loc-icon">📍</div>
+          <h3>Complex Studențesc</h3>
+          <p>Aleea Studenților, nr. 5<br>Timișoara</p>
+        </div>
+
+        <div class="loc-card">
+          <div class="loc-icon">📍</div>
+          <h3>Iulius Town</h3>
+          <p>Incintă Iulius Mall<br>Timișoara</p>
+        </div>
+
+        <div class="loc-card">
+          <div class="loc-icon">📍</div>
+          <h3>Moșnița Nouă</h3>
+          <p>Str. Paulina, nr. 6<br>Moșnița Nouă</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <p>© 2026 Rem's Coffee House. All Rights Reserved.</p>
+      <p>© 2026 Rem's Coffee House. Toate drepturile rezervate.</p>
     </div>
   </footer>
 
