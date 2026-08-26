@@ -70,7 +70,7 @@
     }
 
     /* HERO */
-    .hero { text-align: center; padding: 100px 0 50px; }
+    .hero { text-align: center; padding: 60px 0 30px; }
     .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 12px; }
     .hero-subtitle {
       font-size: 15px;
@@ -78,7 +78,7 @@
       letter-spacing: 1px;
       font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .btn-menu-main {
@@ -95,13 +95,70 @@
     }
     .btn-menu-main:hover { transform: translateY(-2px); }
 
+    /* INFO & LOCATIONS SECTION */
+    .info-section {
+      padding: 50px 0 80px;
+    }
+
+    .info-card-main {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .info-tagline {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--pink-accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .schedule-box {
+      display: inline-block;
+      background-color: #f0eae1;
+      color: #1a1a1a;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      text-align: left;
+    }
+
+    .loc-item {
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      padding: 18px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+
     footer {
       text-align: center;
       padding: 30px 0;
       font-size: 12px;
       color: var(--text-muted);
       border-top: 1px solid var(--border-color);
-      margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+      .locations-grid { grid-template-columns: 1fr; }
+      .info-card-main { padding: 20px; }
     }
   </style>
 </head>
@@ -115,9 +172,8 @@
     <div class="wrap nav-container">
       <nav class="nav-left">
         <a href="index.html">Acasă</a>
-        <!-- AICI ESTE LINKUL CĂTRE PAGINA NOUĂ DE MENIU -->
         <a href="meniu.html">Meniu</a>
-        <a href="index.html#locatii">Locații</a>
+        <a href="#locatii">Locații</a>
       </nav>
 
       <div class="logo-center">
@@ -131,6 +187,30 @@
       <h1>Locul tău preferat pentru cafea & brunch</h1>
       <p class="hero-subtitle">Descoperă produsele noastre preparate zilnic cu pasiune</p>
       <a href="meniu.html" class="btn-menu-main">Vezi Meniul Digital Complet</a>
+    </div>
+  </section>
+
+  <!-- SECȚIUNEA SPECIALĂ CU LOCAȚII ȘI PROGRAM -->
+  <section class="info-section" id="locatii">
+    <div class="wrap">
+      <div class="info-card-main">
+        
+        <div class="info-tagline">
+          specialty coffee | breakfast & brunch | desserts & bakery
+        </div>
+
+        <div>
+          <span class="schedule-box">🕘 Daily 07:00 - 22:00</span>
+        </div>
+
+        <div class="locations-grid">
+          <div class="loc-item">📍 Lucian Blaga, nr. 14, Timișoara</div>
+          <div class="loc-item">📍 Aleea Studenților, nr. 5, Timișoara</div>
+          <div class="loc-item">📍 Iulius Town, Timişoara</div>
+          <div class="loc-item">📍 Str. Paulina, nr. 6, Moşnița Nouă</div>
+        </div>
+
+      </div>
     </div>
   </section>
 
