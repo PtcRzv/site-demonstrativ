@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ReM's Digital Menu Boards - Stacked</title>
+  <title>ReM's Digital Menu Boards - Exact</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
@@ -29,7 +29,6 @@
       align-items: center;
     }
 
-    /* BARĂ SUS CU BUTON DE ÎNAPOI */
     .top-bar {
       width: 100%;
       background: rgba(4, 18, 19, 0.95);
@@ -72,7 +71,6 @@
       letter-spacing: 1px;
     }
 
-    /* CONTAINERUL PENTRU ECRANE PUSE UNA SUB ALTA */
     .menu-stack {
       display: flex;
       flex-direction: column;
@@ -82,7 +80,6 @@
       padding: 40px 20px;
     }
 
-    /* UN SINGUR ECRAN DIGITAL (PANOU VERTICAL) */
     .menu-screen {
       width: 100%;
       background: var(--screen-bg);
@@ -92,7 +89,6 @@
       border: 3px solid #1a383a;
     }
 
-    /* ECRANUL 5 (PROMO SPECIALĂ) */
     .menu-screen.promo-board {
       background: linear-gradient(135deg, #093b3e 0%, #042022 100%);
       color: #fff;
@@ -119,7 +115,6 @@
       margin: 16px 0 8px 0;
     }
 
-    /* GRID PRODUSE */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -133,6 +128,16 @@
       padding: 10px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu-box img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      margin-bottom: 4px;
     }
 
     .menu-box-title {
@@ -145,7 +150,7 @@
     .menu-box-sub {
       font-size: 9px;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .menu-box-price {
@@ -154,7 +159,6 @@
       color: var(--accent-teal);
     }
 
-    /* BREAKFAST SCREEN STYLES */
     .breakfast-header {
       text-align: center;
       margin-bottom: 15px;
@@ -187,6 +191,17 @@
       border-radius: 10px;
       padding: 10px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .food-card img {
+      width: 60px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 6px;
     }
 
     .food-card h4 {
@@ -199,7 +214,7 @@
     .food-card p {
       font-size: 9px;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .food-card .price {
@@ -208,7 +223,6 @@
       color: var(--accent-teal);
     }
 
-    /* PROMO BOARD STYLES */
     .promo-content h2 {
       font-size: 24px;
       font-weight: 900;
@@ -256,38 +270,38 @@
 </head>
 <body>
 
-  <!-- BARĂ SUS -->
   <div class="top-bar">
-    <a href="index.html" class="back-btn">
-      ← Înapoi la Acasă
-    </a>
+    <a href="index.html" class="back-btn">← Înapoi la Acasă</a>
     <div class="top-bar-title">ReM's • Meniu Digital</div>
     <div style="width: 100px;"></div>
   </div>
 
-  <!-- CONTAINERUL VERTICAL (UNA SUB ALTA) -->
   <div class="menu-stack">
 
-    <!-- ECRAN 1: CLASSIC COFFEE, RAF & MATCHA -->
+    <!-- ECRAN 1 -->
     <div class="menu-screen">
       <div class="board-category">Classic Coffee</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&q=80" alt="Americano">
           <div class="menu-box-title">Americano</div>
           <div class="menu-box-sub">150 ml</div>
           <div class="menu-box-price">12 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=100&q=80" alt="Espresso">
           <div class="menu-box-title">Espresso</div>
           <div class="menu-box-sub">30 ml</div>
           <div class="menu-box-price">10 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&q=80" alt="Long Black">
           <div class="menu-box-title">Long Black</div>
           <div class="menu-box-sub">200 ml</div>
           <div class="menu-box-price">25 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=100&q=80" alt="Flat White">
           <div class="menu-box-title">Flat White</div>
           <div class="menu-box-sub">180 ml</div>
           <div class="menu-box-price">14 RON</div>
@@ -297,11 +311,13 @@
       <div class="sub-category">Raf Coffee</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=100&q=80" alt="Sweet Vanilla Raf">
           <div class="menu-box-title">Sweet Vanilla Raf</div>
           <div class="menu-box-sub">250 ml</div>
           <div class="menu-box-price">22 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=100&q=80" alt="Pistacchio Raf">
           <div class="menu-box-title">Pistacchio Raf</div>
           <div class="menu-box-sub">250 ml</div>
           <div class="menu-box-price">24 RON</div>
@@ -311,11 +327,13 @@
       <div class="sub-category">Matcha Vegan</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=100&q=80" alt="Matcha Latte">
           <div class="menu-box-title">Matcha Latte</div>
           <div class="menu-box-sub">250 ml</div>
           <div class="menu-box-price">18 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=100&q=80" alt="Pink Tonic Matcha">
           <div class="menu-box-title">Pink Tonic Matcha</div>
           <div class="menu-box-sub">300 ml</div>
           <div class="menu-box-price">26 RON</div>
@@ -324,16 +342,18 @@
       <div class="footer-note">Prețurile includ TVA. Informați ospătarul despre alergii.</div>
     </div>
 
-    <!-- ECRAN 2: ICED COFFEE, BUBBLE & MILKSHAKE -->
+    <!-- ECRAN 2 -->
     <div class="menu-screen">
       <div class="board-category">Iced Coffee</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=100&q=80" alt="Iced Latte">
           <div class="menu-box-title">Iced Latte</div>
           <div class="menu-box-sub">300 ml</div>
           <div class="menu-box-price">18 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=100&q=80" alt="Pistacchio Iced Latte">
           <div class="menu-box-title">Pistacchio Iced Latte</div>
           <div class="menu-box-sub">300 ml</div>
           <div class="menu-box-price">25 RON</div>
@@ -343,11 +363,13 @@
       <div class="sub-category">Bubble Drinks</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&q=80" alt="Mango Bubble Latte">
           <div class="menu-box-title">Mango Bubble Latte</div>
           <div class="menu-box-sub">350 ml</div>
           <div class="menu-box-price">28 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&q=80" alt="Caramel Bubble Latte">
           <div class="menu-box-title">Caramel Bubble Latte</div>
           <div class="menu-box-sub">350 ml</div>
           <div class="menu-box-price">28 RON</div>
@@ -357,11 +379,13 @@
       <div class="sub-category">Milkshake</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=100&q=80" alt="Vanilla Milkshake">
           <div class="menu-box-title">Vanilla Milkshake</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">24 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=100&q=80" alt="Oreo Milkshake">
           <div class="menu-box-title">Oreo Milkshake</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">26 RON</div>
@@ -370,16 +394,18 @@
       <div class="footer-note">ReM's Refreshing Menu</div>
     </div>
 
-    <!-- ECRAN 3: LEMONADES & TEA -->
+    <!-- ECRAN 3 -->
     <div class="menu-screen">
       <div class="board-category">Lemonades & Tea</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=100&q=80" alt="Classic Lemonade">
           <div class="menu-box-title">Classic Lemonade</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">18 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=100&q=80" alt="Mint Lemonade">
           <div class="menu-box-title">Mint Lemonade</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">20 RON</div>
@@ -389,11 +415,13 @@
       <div class="sub-category">Iced Tea</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&q=80" alt="Iced Tea Lemon">
           <div class="menu-box-title">Iced Tea Lemon</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">18 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&q=80" alt="Iced Tea Peach">
           <div class="menu-box-title">Iced Tea Peach</div>
           <div class="menu-box-sub">400 ml</div>
           <div class="menu-box-price">18 RON</div>
@@ -403,11 +431,13 @@
       <div class="sub-category">Ceai Infuzie & Homemade</div>
       <div class="items-grid">
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=100&q=80" alt="Earl Grey">
           <div class="menu-box-title">Earl Grey</div>
           <div class="menu-box-sub">300 ml</div>
           <div class="menu-box-price">18 RON</div>
         </div>
         <div class="menu-box">
+          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=100&q=80" alt="Ginger Honey Tea">
           <div class="menu-box-title">Ginger Honey Tea</div>
           <div class="menu-box-sub">350 ml</div>
           <div class="menu-box-price">18 RON</div>
@@ -416,7 +446,7 @@
       <div class="footer-note">Apă 0.75L: 15 RON | Apă 0.33L: 10 RON</div>
     </div>
 
-    <!-- ECRAN 4: BREAKFAST -->
+    <!-- ECRAN 4 -->
     <div class="menu-screen">
       <div class="breakfast-header">
         <div class="breakfast-title">Break Fast</div>
@@ -425,31 +455,37 @@
 
       <div class="food-grid">
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=120&q=80" alt="Croissant">
           <h4>Croissant cu Șuncă</h4>
           <p>Șuncă și cașcaval</p>
           <div class="price">30 RON</div>
         </div>
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1590412200988-a46697078ad5?w=120&q=80" alt="Shakshouka">
           <h4>Shakshouka</h4>
           <p>Cu feta proaspătă</p>
           <div class="price">30 RON</div>
         </div>
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=120&q=80" alt="Benedict">
           <h4>Benedict cu Somon</h4>
           <p>Sos hollandaise fin</p>
           <div class="price">30 RON</div>
         </div>
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=120&q=80" alt="Yogurt">
           <h4>Yogurt Bowl</h4>
           <p>Cu fructe proaspete</p>
           <div class="price">25 RON</div>
         </div>
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=120&q=80" alt="Granola">
           <h4>Granola Bowl</h4>
           <p>Fructe de pădure</p>
           <div class="price">12 RON</div>
         </div>
         <div class="food-card">
+          <img src="https://images.unsplash.com/photo-1510693206972-df098062cb71?w=120&q=80" alt="Omletă">
           <h4>Omletă Vegană</h4>
           <p>Legume de sezon</p>
           <div class="price">15 RON</div>
@@ -458,7 +494,7 @@
       <div class="footer-note">Morning Menu • ReM's Coffee & Brunch</div>
     </div>
 
-    <!-- ECRAN 5: PROMO SPECIALĂ -->
+    <!-- ECRAN 5 -->
     <div class="menu-screen promo-board">
       <div class="promo-content">
         <h2>Wrap Caesar<br>cu Pui / Somon<br>+ Cafea* / Pepsi</h2>
